@@ -23,9 +23,9 @@ resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("16_yfa5y")
 shader_parameter/target_color = Color(1, 0, 0, 1)
-shader_parameter/replace_color = Color(0.4117647, 0.5137255, 0.52156866, 1)
-shader_parameter/threshold = 0.800000038
-shader_parameter/texture_albedo = ExtResource("3_g2qh1")
+shader_parameter/replace_color = Color(0.56078434, 0.5411765, 0.5294118, 1)
+shader_parameter/threshold = 0.9550000453625
+shader_parameter/texture_albedo = ExtResource("2_h60xr")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_v685b"]
 size = Vector3(0.2927246, 0.30444336, 0.026367188)
@@ -41,8 +41,7 @@ popSfxs = Array[AudioStreamMP3]([ExtResource("16_y4qdp")])
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 material_override = SubResource("ShaderMaterial_y4qdp")
 shaded = true
-alpha_cut = 2
-texture = ExtResource("3_g2qh1")
+texture = ExtResource("2_h60xr")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1874114991]
 

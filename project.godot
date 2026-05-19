@@ -29,6 +29,10 @@ window/size/viewport_height=720
 
 project/assembly_name="100 Cats"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [physics]
 
 3d/physics_engine="Jolt Physics"

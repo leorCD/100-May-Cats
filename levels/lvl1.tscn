@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://0os1etmqls7x" path="res://top/textures/GroundSandColor.png" id="5_a7xrj"]
 [ext_resource type="Texture2D" uid="uid://d2s4ermefpilh" path="res://common/waterNoise.tres" id="5_gisse"]
 [ext_resource type="PackedScene" uid="uid://cqmco85gcex0t" path="res://top/recenteredmodels/river_wall_stairs.tscn" id="5_l8ly6"]
+[ext_resource type="PackedScene" uid="uid://5ajx7bvk3m8o" path="res://common/sn/bird.tscn" id="5_uf5u5"]
 [ext_resource type="PackedScene" uid="uid://b64y8u4y78tnl" path="res://top/recenteredmodels/river_bridge.tscn" id="6_0gn07"]
 [ext_resource type="PackedScene" uid="uid://s5tj4tdyk1mm" path="res://top/recenteredmodels/fence.tscn" id="7_0qoj2"]
 [ext_resource type="Texture2D" uid="uid://cihxhw2sst6oi" path="res://top/textures/GroundTilesBrokenColor.png" id="11_q5yks"]
@@ -230,7 +231,9 @@ volumetric_fog_albedo = Color(0.60807854, 0.70810443, 0.81331307, 1)
 [node name="test" type="Node3D" unique_id=100770450]
 script = ExtResource("1_oulqg")
 
-[node name="wind" type="GPUParticles3D" parent="." unique_id=1452001183]
+[node name="effects" type="Node" parent="." unique_id=800436699]
+
+[node name="wind" type="GPUParticles3D" parent="effects" unique_id=1452001183]
 transform = Transform3D(-1.1097605, 0, -1.0759494e-07, 0, 0.9730129, 0, 9.7018344e-08, 0, -1.2307427, 1.0746145, 11.396903, 1.0061878)
 custom_aabb = AABB(-10000, -10000, -10000, 20000, 20000, 20000)
 amount = 10
@@ -239,12 +242,132 @@ speed_scale = 2.02
 process_material = SubResource("ParticleProcessMaterial_uf5u5")
 draw_pass_1 = SubResource("BoxMesh_uf5u5")
 
-[node name="CloudGenerator" type="MultiMeshInstance3D" parent="." unique_id=1130365004]
+[node name="CloudGenerator" type="MultiMeshInstance3D" parent="effects" unique_id=1130365004]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.392359, 0)
 script = ExtResource("2_lx5vm")
 cloudMesh = ExtResource("3_nyy6x")
 cloudCount = 175
 cloudSpeed = -6.0
+
+[node name="Bird2" parent="effects" unique_id=608888905 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2067413, 9.381488, -2.7140374)
+
+[node name="Bird3" parent="effects" unique_id=673405029 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2067413, 9.592932, -1.8605828)
+
+[node name="Bird4" parent="effects" unique_id=1709025024 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.592696, 9.456949, -2.3756065)
+
+[node name="Bird5" parent="effects" unique_id=466865052 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.592696, 9.795524, -1.2783661)
+
+[node name="Bird30" parent="effects" unique_id=626680936 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1909385, 9.200057, -23.520641)
+
+[node name="Bird31" parent="effects" unique_id=239437467 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0998826, 9.0640745, -24.15512)
+
+[node name="Bird32" parent="effects" unique_id=1764852897 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3330593, 9.402649, -22.489449)
+
+[node name="Bird33" parent="effects" unique_id=249216947 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.418019, 8.9238615, -23.268593)
+
+[node name="Bird34" parent="effects" unique_id=1084040929 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5707972, 8.787879, -24.88409)
+
+[node name="Bird35" parent="effects" unique_id=846189389 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.0478077, 9.126453, -23.135353)
+
+[node name="Bird36" parent="effects" unique_id=1147607635 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8316412, 8.254183, -25.146544)
+
+[node name="Bird37" parent="effects" unique_id=1114943979 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.015580654, 8.1182, -24.519007)
+
+[node name="Bird38" parent="effects" unique_id=1890793521 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.217596, 8.456775, -25.096369)
+
+[node name="Bird39" parent="effects" unique_id=1638279535 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3025558, 7.9779873, -25.659182)
+
+[node name="Bird40" parent="effects" unique_id=668362522 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.54466605, 7.842005, -24.715935)
+
+[node name="Bird41" parent="effects" unique_id=928492469 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68851066, 8.180579, -25.076965)
+
+[node name="Bird24" parent="effects" unique_id=1718635197 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.266989, 6.063961, 0.118171334)
+
+[node name="Bird25" parent="effects" unique_id=1910719305 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.652945, 5.9279785, -0.39685237)
+
+[node name="Bird26" parent="effects" unique_id=353381198 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.652945, 6.266553, 0.7003881)
+
+[node name="Bird27" parent="effects" unique_id=534703942 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.266989, 5.0869226, 1.3223176)
+
+[node name="Bird28" parent="effects" unique_id=1969021175 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.652945, 4.6814604, 3.379013)
+
+[node name="Bird29" parent="effects" unique_id=1605247426 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.652945, 5.2895145, 1.9045343)
+
+[node name="Bird6" parent="effects" unique_id=1953594159 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.426096, 12.737108, -5.279557)
+
+[node name="Bird7" parent="effects" unique_id=267855324 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.769853, 12.832326, -4.4261026)
+
+[node name="Bird10" parent="effects" unique_id=1101168416 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.30344, 13.063537, -4.4261026)
+
+[node name="Bird11" parent="effects" unique_id=2037005649 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.654985, 13.225363, -4.014701)
+
+[node name="Bird8" parent="effects" unique_id=744609409 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.040141, 12.543209, -4.941126)
+
+[node name="Bird9" parent="effects" unique_id=1025783992 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.219702, 12.8817835, -3.8438857)
+
+[node name="Bird12" parent="effects" unique_id=63129054 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.589609, 5.646004, 21.604977)
+
+[node name="Bird22" parent="effects" unique_id=2124450570 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.589609, 5.758939, 22.187683)
+
+[node name="Bird20" parent="effects" unique_id=1725128355 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.727322, 6.4458337, 21.604977)
+
+[node name="Bird18" parent="effects" unique_id=2079311545 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.589609, 5.376135, 21.922556)
+
+[node name="Bird19" parent="effects" unique_id=188180535 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.49068, 4.861685, 21.922556)
+
+[node name="Bird21" parent="effects" unique_id=149464572 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.49068, 4.9493284, 22.599724)
+
+[node name="Bird13" parent="effects" unique_id=2004485687 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.933366, 4.6745234, 22.458431)
+
+[node name="Bird14" parent="effects" unique_id=460690458 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.7428617, 3.8791509, 22.458431)
+
+[node name="Bird15" parent="effects" unique_id=1959875381 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.818499, 4.6500773, 22.869835)
+
+[node name="Bird23" parent="effects" unique_id=128830125 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.357905, 3.7940507, 22.869835)
+
+[node name="Bird16" parent="effects" unique_id=530132373 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.203654, 5.117461, 21.943409)
+
+[node name="Bird17" parent="effects" unique_id=1183695034 instance=ExtResource("5_uf5u5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.383215, 4.1885195, 23.04065)
 
 [node name="cats" type="Node" parent="." unique_id=950839158]
 
@@ -255,7 +378,7 @@ transform = Transform3D(0.37737218, 0, -0.92606175, 0.42769375, 0.8869625, 0.174
 transform = Transform3D(0.22768813, 0, -0.97373414, 0, 1, 0, 0.97373414, 0, 0.22768813, -19.277954, 2.510627, 8.429027)
 
 [node name="cat3" parent="cats" unique_id=624609131 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7843868, 0, -0.620272, 0, 0.99999994, 0, 0.620272, 0, 0.7843868, -16.360445, 2.9353554, 17.520594)
+transform = Transform3D(0.7843868, 0, -0.620272, 0, 0.99999994, 0, 0.620272, 0, 0.7843868, -16.360445, 2.95412, 17.520594)
 weldTo = NodePath("../../top/map/Ship")
 
 [node name="cat4" parent="cats" unique_id=24872115 instance=ExtResource("36_gisse")]
@@ -289,7 +412,7 @@ transform = Transform3D(0.100161605, 0.57134247, -0.8145768, -0.06735598, 0.8207
 transform = Transform3D(0.6999002, 0, 0.7142406, 0, 1, 0, -0.7142406, 0, 0.6999002, 16.557468, 1.5418603, 13.362938)
 
 [node name="cat14" parent="cats" unique_id=820390165 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7783637, 0, 0.6278136, 0, 1, 0, -0.6278136, 0, 0.7783637, 23.3702, 193.25829, 17.961521)
+transform = Transform3D(0.7783637, 0, 0.6278136, 0, 1, 0, -0.6278136, 0, 0.7783637, 24.5902, 217.27673, 18.24152)
 weldTo = NodePath("../../top/map/Ship3")
 weldOffset = Vector3(0.305, 6.025, 0.07)
 
@@ -300,7 +423,7 @@ transform = Transform3D(0.26402456, 0, -0.964516, 0, 1, 0, 0.964516, 0, 0.264024
 transform = Transform3D(0.22755218, 0, -0.97376585, 0.44227734, 0.8909035, 0.10335254, 0.86753136, -0.45419264, 0.20272702, -21.535381, 2.6796174, 3.7644634)
 
 [node name="cat17" parent="cats" unique_id=1485298816 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7829774, 0, 0.62205017, 0, 1, 0, -0.62205017, 0, 0.7829774, 13.96019, 6.58815, 15.806531)
+transform = Transform3D(0.7829774, 0, 0.62205017, 0, 1, 0, -0.62205017, 0, 0.7829774, 13.96019, 6.506618, 15.806531)
 weldTo = NodePath("../../top/map/Ship3")
 
 [node name="cat18" parent="cats" unique_id=440145238 instance=ExtResource("36_gisse")]
@@ -562,11 +685,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5042715, 0, 0)
 transform = Transform3D(100, 0, 0, 0, 14.323, 0, 0, 0, 100, -0.0042715073, -2.8118296, 0)
 material_override = SubResource("ShaderMaterial_gisse")
 mesh = SubResource("CylinderMesh_hokfx")
+metadata/_edit_lock_ = true
 
 [node name="sand" type="MeshInstance3D" parent="top/map" unique_id=540360743]
 transform = Transform3D(80, 0, 0, 0, 1.385, 0, 0, 0, 80, -0.0042715073, -2.628642, 0)
 cast_shadow = 0
 mesh = SubResource("CylinderMesh_uf5u5")
+metadata/_edit_lock_ = true
 
 [node name="StaticBody3D" type="StaticBody3D" parent="top/map/sand" unique_id=551572775]
 
@@ -1230,21 +1355,21 @@ transform = Transform3D(-4.371139e-08, -0.12715116, -0.99188334, 0, 0.99188334, 
 transform = Transform3D(0.13895515, -0.120986074, -0.992989, 0.17036213, 1.4655846, -0.07281074, 1.614952, -0.1441953, 0.093120486, -8.917141, 2.4906423, 1.6039739)
 
 [node name="Ship" parent="top/map" unique_id=1883134415 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(0.27211115, 0.005919081, 0.98197716, 0.040286783, 1.003574, -0.020760048, -0.8634162, 0.048691943, 0.30850774, -10.461081, 0.2839294, 19.193228)
+transform = Transform3D(0.27211115, 0.005919081, 0.98197716, 0.040286783, 1.003574, -0.020760048, -0.8634162, 0.048691943, 0.30850774, -10.461081, 0.32664818, 19.193228)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425
 yOffset = 3.3
 
 [node name="Ship2" parent="top/map" unique_id=839549235 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(0.40163997, -0.027791442, -0.4910579, 0.028230824, 0.6342427, -0.012804782, 0.4910328, -0.013732376, 0.40239674, 20.951149, 0.71744955, 10.173331)
+transform = Transform3D(0.40163997, -0.027791442, -0.4910579, 0.028230824, 0.6342427, -0.012804782, 0.4910328, -0.013732376, 0.40239674, 20.951149, 0.7520189, 10.173331)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425
 yOffset = 3.3
 
 [node name="Ship3" parent="top/map" unique_id=1449083400 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(-0.8292716, -0.03470068, -0.016614635, -0.03691449, 0.7717157, -0.014791569, -0.019536652, 0.014782481, 0.7331892, 13.610189, 0.5144553, 15.721531)
+transform = Transform3D(-0.8292716, -0.03470068, -0.016614635, -0.03691449, 0.7717157, -0.014791569, -0.019536652, 0.014782481, 0.7331892, 13.610189, 0.498721, 15.721531)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425
