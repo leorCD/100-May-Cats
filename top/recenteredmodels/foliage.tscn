@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c0sf37c81fh4h"]
+
+[ext_resource type="PackedScene" uid="uid://i10j35olk4m0" path="res://top/models/Foliage.dae" id="1_ubkt7"]
+[ext_resource type="Texture2D" uid="uid://rccpr1btsuqy" path="res://top/textures/FoliageColor.png" id="2_6lstg"]
+[ext_resource type="Texture2D" uid="uid://bmkmxesapyclv" path="res://top/textures/FoliageNormal.png" id="3_dtdpf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8h813"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("2_6lstg")
+normal_enabled = true
+normal_texture = ExtResource("3_dtdpf")
+
+[node name="Foliage" unique_id=1185205787 instance=ExtResource("1_ubkt7")]
+
+[node name="Plane" parent="." index="0" unique_id=1216557005]
+transform = Transform3D(0.5, 0, 0, 0, 0.49911657, -0.02970952, 0, 0.02970952, 0.49911657, 0, 0, 0)
+sorting_offset = 0.1
+surface_material_override/0 = SubResource("StandardMaterial3D_8h813")

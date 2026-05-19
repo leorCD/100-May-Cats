@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cud1p7f12w7hb"]
+
+[ext_resource type="PackedScene" uid="uid://bov6cdgf558u" path="res://top/models/Parasol.dae" id="1_72su1"]
+[ext_resource type="Texture2D" uid="uid://cjfwxgg100tyi" path="res://top/textures/Houses Colorscheme 2.png" id="2_00uby"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ex2k1"]
+albedo_texture = ExtResource("2_00uby")
+
+[node name="Parasol" unique_id=562580281 instance=ExtResource("1_72su1")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1239616115]
+transform = Transform3D(0.15, 0, 0, 0, 0.017, 0, 0, 0, 0.15, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_ex2k1")

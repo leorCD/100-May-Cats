@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://624fhkd41wur"]
+
+[ext_resource type="PackedScene" uid="uid://bt6l0nls0mqv0" path="res://top/models/Bench.dae" id="1_7da7i"]
+[ext_resource type="Texture2D" uid="uid://bcxb033ex4xti" path="res://top/textures/Houses Colorscheme.png" id="2_3gmee"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1vvo7"]
+albedo_texture = ExtResource("2_3gmee")
+
+[node name="Bench" unique_id=1645318896 instance=ExtResource("1_7da7i")]
+
+[node name="Cube_153" parent="." index="0" unique_id=520002660]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_1vvo7")

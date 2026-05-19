@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://boy3q2fe23553"]
+
+[ext_resource type="PackedScene" uid="uid://pwyeinqgtdrl" path="res://top/models/House-1-3.dae" id="1_pwaxv"]
+[ext_resource type="Texture2D" uid="uid://cjfwxgg100tyi" path="res://top/textures/Houses Colorscheme 2.png" id="2_imkmp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02wm"]
+albedo_texture = ExtResource("2_imkmp")
+
+[node name="House-1-3" unique_id=413130364 instance=ExtResource("1_pwaxv")]
+
+[node name="House-1-3" parent="." index="0" unique_id=1819505171]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="FrontExtension-1-3" parent="House-1-3" index="0" unique_id=1613034699]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="RoofWindowBig-1-3" parent="House-1-3" index="1" unique_id=1926021105]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="DoorExtension-1-3" parent="House-1-3" index="2" unique_id=2079002917]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="RoofWindowCentre-1-3" parent="House-1-3" index="3" unique_id=1018596411]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="RoofWindowMiddle-1-3" parent="House-1-3" index="4" unique_id=1469052398]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="RoofWindowSides-1-3" parent="House-1-3" index="5" unique_id=1308163201]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")
+
+[node name="Main-1-3" parent="House-1-3" index="6" unique_id=1632523531]
+surface_material_override/0 = SubResource("StandardMaterial3D_a02wm")
+surface_material_override/1 = SubResource("StandardMaterial3D_a02wm")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b4faue8lj4fgc"]
+
+[ext_resource type="PackedScene" uid="uid://beu1tv6gbnh6v" path="res://top/models/ShoreRock.dae" id="1_5nu3c"]
+[ext_resource type="Texture2D" uid="uid://7xoppqc2tgum" path="res://top/textures/GroundGrassColor.png" id="2_5nu3c"]
+[ext_resource type="Texture2D" uid="uid://bi1352oeb8hdr" path="res://top/textures/GroundDirtNormal.png" id="3_wp6fa"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_av0f5"]
+albedo_texture = ExtResource("2_5nu3c")
+normal_enabled = true
+normal_texture = ExtResource("3_wp6fa")
+
+[node name="ShoreRock" unique_id=1629497465 instance=ExtResource("1_5nu3c")]
+
+[node name="Cube_267" parent="." index="0" unique_id=2142111400]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_av0f5")
+surface_material_override/1 = SubResource("StandardMaterial3D_av0f5")

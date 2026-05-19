@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://s5tj4tdyk1mm"]
+
+[ext_resource type="PackedScene" uid="uid://bssvldqwhvjra" path="res://top/models/Fence.dae" id="1_waaeu"]
+[ext_resource type="Texture2D" uid="uid://cjfwxgg100tyi" path="res://top/textures/Houses Colorscheme 2.png" id="2_f35ol"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2pto"]
+albedo_texture = ExtResource("2_f35ol")
+
+[node name="Fence" unique_id=753555512 instance=ExtResource("1_waaeu")]
+
+[node name="Cube_150" parent="." index="0" unique_id=1890520113]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_a2pto")

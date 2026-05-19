@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bjm3qoatsb0bi"]
+
+[ext_resource type="PackedScene" uid="uid://bbeuqjlg11o2j" path="res://top/models/House-2-1.dae" id="1_en3uc"]
+[ext_resource type="Texture2D" uid="uid://d2piti822nl7d" path="res://top/textures/Houses Colorscheme 3.png" id="2_en3uc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8em4e"]
+albedo_texture = ExtResource("2_en3uc")
+
+[node name="House-2-1" unique_id=424866009 instance=ExtResource("1_en3uc")]
+
+[node name="House-2-1" parent="." index="0" unique_id=2070541269]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="RoofWindowFront-2-1" parent="House-2-1" index="0" unique_id=1498563649]
+surface_material_override/0 = SubResource("StandardMaterial3D_8em4e")
+surface_material_override/1 = SubResource("StandardMaterial3D_8em4e")
+
+[node name="WallExtension-2-1" parent="House-2-1" index="1" unique_id=865423636]
+surface_material_override/0 = SubResource("StandardMaterial3D_8em4e")
+surface_material_override/1 = SubResource("StandardMaterial3D_8em4e")
+
+[node name="Main-2-1" parent="House-2-1" index="2" unique_id=2050740780]
+surface_material_override/0 = SubResource("StandardMaterial3D_8em4e")
+surface_material_override/1 = SubResource("StandardMaterial3D_8em4e")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://0hnkpqvagws3"]
+
+[ext_resource type="PackedScene" uid="uid://thflnd7u2vnd" path="res://top/models/Lamppost.dae" id="1_dy6bu"]
+[ext_resource type="Texture2D" uid="uid://d2piti822nl7d" path="res://top/textures/Houses Colorscheme 3.png" id="2_cu2yd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbhfw"]
+albedo_texture = ExtResource("2_cu2yd")
+
+[node name="Lamppost" unique_id=759750842 instance=ExtResource("1_dy6bu")]
+
+[node name="Cube_149" parent="." index="0" unique_id=415867004]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_pbhfw")

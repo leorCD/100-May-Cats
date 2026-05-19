@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cv127dsibf2bc"]
+
+[ext_resource type="Script" uid="uid://c1t02ahpuyvop" path="res://scripts/AudioModule.cs" id="1_fxmme"]
+
+[node name="AudioModule" type="Node3D" unique_id=36405705]
+script = ExtResource("1_fxmme")

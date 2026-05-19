@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://kpy1fu5t23nm"]
+
+[ext_resource type="Shader" uid="uid://2p10rx2siw0b" path="res://common/shdr/windStreak.gdshader" id="1_j5q4k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_j5q4k")
+shader_parameter/streak_color = Color(1, 1, 1, 0.5882353)

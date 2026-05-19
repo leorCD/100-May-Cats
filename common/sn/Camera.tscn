@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b2t74s6srm15e"]
+
+[ext_resource type="Script" uid="uid://ceb7bsvxwsg27" path="res://scripts/InteractionModule.cs" id="1_e6e23"]
+
+[node name="Camera3D" type="Camera3D" unique_id=1806749995]
+
+[node name="InteractionModule" type="Node3D" parent="." unique_id=729748149]
+script = ExtResource("1_e6e23")

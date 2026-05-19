@@ -1,0 +1,381 @@
+[gd_scene format=3 uid="uid://bknkgxtix2yhx"]
+
+[ext_resource type="Script" uid="uid://buh5tl5fvrumv" path="res://scripts/CameraArm.cs" id="1_0xm2m"]
+[ext_resource type="Shader" uid="uid://dmevdrbqybhm1" path="res://common/shdr/vignette.gdshader" id="1_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cv127dsibf2bc" path="res://common/sn/audio_module.tscn" id="1_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://trxln45i322a" path="res://common/tx/caticon.png" id="1_4c57u"]
+[ext_resource type="Texture2D" uid="uid://gmdfn52j7yjc" path="res://common/tx/overlay.png" id="1_dg77c"]
+[ext_resource type="Texture2D" uid="uid://dmyoiu7p7jto7" path="res://common/tx/settings.png" id="1_vivmo"]
+[ext_resource type="Script" uid="uid://b0xy74sha5su8" path="res://scripts/musicSlider.cs" id="1_w48qg"]
+[ext_resource type="PackedScene" uid="uid://b2t74s6srm15e" path="res://common/sn/Camera.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://crphho1mu86ux" path="res://scripts/Fps.cs" id="2_272bh"]
+[ext_resource type="Shader" uid="uid://dcefm0x82ase8" path="res://common/shdr/godrays.gdshader" id="2_lquwl"]
+[ext_resource type="Script" uid="uid://hxh4vb600uwd" path="res://scripts/sfxSlider.cs" id="2_vivmo"]
+[ext_resource type="Script" uid="uid://d0mevwe3g3hm5" path="res://scripts/OptionsButton.cs" id="2_ycdy4"]
+[ext_resource type="Script" uid="uid://6djagyanoqfy" path="res://scripts/LightRays.cs" id="3_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cm0kbo0aaeygj" path="res://levels/lvl1.tscn" id="3_h2yge"]
+[ext_resource type="Shader" uid="uid://mic67wy5m0bg" path="res://common/shdr/wavy2D.gdshader" id="4_kek77"]
+[ext_resource type="Script" uid="uid://f1k8ccbdif6r" path="res://scripts/UnderWater.cs" id="5_5vw27"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
+
+[sub_resource type="SystemFont" id="SystemFont_cegan"]
+font_names = PackedStringArray("Julygo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_82xsv"]
+font = SubResource("SystemFont_cegan")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_getpj"]
+bg_color = Color(0.7411765, 0.827451, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
+bg_color = Color(0.7411765, 0.827451, 1, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_w48qg"]
+font_names = PackedStringArray("Julygo")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vivmo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cqfq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaehf"]
+
+[sub_resource type="SystemFont" id="SystemFont_h2yge"]
+font_names = PackedStringArray("Julygo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_1bvp3"]
+font = SubResource("SystemFont_h2yge")
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_272bh"]
+font_names = PackedStringArray("Julygo")
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
+font = SubResource("SystemFont_272bh")
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lquwl"]
+shader = ExtResource("1_1bvp3")
+shader_parameter/radius = 0.22
+shader_parameter/softness = 0.50000002375
+shader_parameter/intensity = 2.0
+shader_parameter/contrast = 2.2
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_7mycd"]
+colors = PackedColorArray(0.8795596, 0.7367417, 0.47638172, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_272bh"]
+gradient = SubResource("Gradient_7mycd")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7mycd"]
+viewport_path = NodePath("SubViewportContainer/SubViewport")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+resource_local_to_scene = true
+shader = ExtResource("2_lquwl")
+shader_parameter/subviewport_tex = SubResource("ViewportTexture_7mycd")
+shader_parameter/light_color = SubResource("GradientTexture1D_272bh")
+shader_parameter/ray_length = 0.6650000315875
+shader_parameter/ray_intensity = 0.50000002375
+shader_parameter/light_source_scale = 0.015
+shader_parameter/light_source_feather = 2.0
+shader_parameter/noise_strength = 0.2
+shader_parameter/light_source_pos = Vector2(0, 0)
+shader_parameter/light_source_dir = Vector3(0.5, -1, 0.25)
+shader_parameter/camera_dir = Vector3(-0.5, 1, -0.25)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4c57u"]
+noise_type = 3
+frequency = 0.0029
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_efxa6"]
+noise = SubResource("FastNoiseLite_4c57u")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dg77c"]
+shader = ExtResource("4_kek77")
+shader_parameter/noise = SubResource("NoiseTexture2D_efxa6")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h2yge"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 24.58
+dof_blur_far_transition = 52.45
+dof_blur_amount = 0.05
+
+[node name="Main" type="Node3D" unique_id=195927381]
+
+[node name="AudioModule" parent="." unique_id=36405705 instance=ExtResource("1_2cqfq")]
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="." unique_id=710310957]
+visibility_layer = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer" unique_id=1600049623]
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(1280, 720)
+render_target_clear_mode = 2
+render_target_update_mode = 4
+
+[node name="Camera3D_Viewport" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=47240543]
+
+[node name="Hud" type="CanvasLayer" parent="." unique_id=1426856256]
+
+[node name="Control" type="Control" parent="Hud" unique_id=415157858]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="PanelContainer" parent="Hud/Control" unique_id=1100300759]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.225
+anchor_right = 0.15234375
+anchor_bottom = 0.3986111
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Hud/Control/Settings" unique_id=732449074]
+layout_mode = 2
+texture = ExtResource("1_vivmo")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Hud/Control/Settings" unique_id=813746667]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer" unique_id=763986941]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="music" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/VBoxContainer" unique_id=1054262403]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/music" unique_id=1901014976]
+layout_mode = 2
+mouse_filter = 1
+text = "Music"
+label_settings = SubResource("LabelSettings_82xsv")
+
+[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/music" unique_id=372694308]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_getpj")
+max_value = 1.0
+step = 0.01
+value = 0.4
+script = ExtResource("1_w48qg")
+
+[node name="sfx" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/VBoxContainer" unique_id=751275262]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/sfx" unique_id=1071353085]
+layout_mode = 2
+mouse_filter = 1
+text = "Sound Effects"
+label_settings = SubResource("LabelSettings_82xsv")
+
+[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/sfx" unique_id=1722091874]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ryguw")
+max_value = 1.0
+step = 0.01
+value = 0.1
+script = ExtResource("2_vivmo")
+
+[node name="overlay" type="TextureRect" parent="Hud/Control" unique_id=1630741908]
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_dg77c")
+expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="options" type="Button" parent="Hud/Control/overlay" unique_id=747272181 node_paths=PackedStringArray("settingsContainer")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.024223235
+anchor_top = 0.114277765
+anchor_right = 0.12168751
+anchor_bottom = 0.11833333
+offset_left = -13.005741
+offset_top = -19.279999
+offset_right = 5.23999
+offset_bottom = 12.799995
+rotation = -0.41015238
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = SubResource("SystemFont_w48qg")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxEmpty_vivmo")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2cqfq")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_yaehf")
+text = "options"
+script = ExtResource("2_ycdy4")
+settingsContainer = NodePath("../../Settings")
+metadata/_edit_use_anchors_ = true
+
+[node name="caticon" type="TextureRect" parent="Hud/Control" unique_id=1907567906]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.440625
+anchor_top = 0.875
+anchor_right = 0.49453124
+anchor_bottom = 0.97291666
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture = ExtResource("1_4c57u")
+expand_mode = 1
+stretch_mode = 4
+flip_h = true
+metadata/_edit_use_anchors_ = true
+
+[node name="catsfound" type="Label" parent="Hud/Control" unique_id=141624822]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4953125
+anchor_top = 0.90416664
+anchor_right = 0.5625
+anchor_bottom = 0.97083324
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+text = "100"
+label_settings = SubResource("LabelSettings_1bvp3")
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="fps" type="Label" parent="Hud/Control" unique_id=1749645847]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9777778
+anchor_right = 0.078125
+anchor_bottom = 1.0
+grow_vertical = 0
+text = "fps"
+label_settings = SubResource("LabelSettings_5vw27")
+vertical_alignment = 1
+script = ExtResource("2_272bh")
+metadata/_edit_use_anchors_ = true
+
+[node name="Vignette" type="ColorRect" parent="Hud/Control" unique_id=1664794574]
+z_index = -4
+material = SubResource("ShaderMaterial_lquwl")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="LightRays" type="ColorRect" parent="Hud/Control" unique_id=384543414]
+visible = false
+z_index = -3
+material = SubResource("ShaderMaterial_7mycd")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_7mycd")
+LightPath = NodePath("../../../Map/Sun")
+CameraPath = NodePath("../../../CameraArm/Camera3D")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="underWater" type="ColorRect" parent="Hud/Control" unique_id=1123356692 node_paths=PackedStringArray("mainCamera")]
+visible = false
+z_index = -2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.11372549, 0.2509804, 0.3529412, 0.38039216)
+script = ExtResource("5_5vw27")
+mainCamera = NodePath("../../../CameraArm/Camera3D")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Hud/Control/underWater" unique_id=352815450]
+material = SubResource("ShaderMaterial_dg77c")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CameraArm" type="SpringArm3D" parent="." unique_id=1022222344 node_paths=PackedStringArray("adornee")]
+collision_mask = 0
+spring_length = 5.175
+script = ExtResource("1_0xm2m")
+adornee = NodePath("../Map/lvl1")
+mouse_sensitivity = 0.1
+yOffset = 2.4
+minDistance = 1.0
+maxDistance = 30.0
+
+[node name="Camera3D" parent="CameraArm" unique_id=1806749995 instance=ExtResource("2_0xm2m")]
+attributes = SubResource("CameraAttributesPractical_h2yge")
+fov = 70.0
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="CameraArm" unique_id=371679966]
+remote_path = NodePath("../../SubViewportContainer/SubViewport/Camera3D_Viewport")
+update_scale = false
+
+[node name="Map" type="Node" parent="." unique_id=2025126906]
+
+[node name="Sun" type="DirectionalLight3D" parent="Map" unique_id=1039240075]
+transform = Transform3D(-0.99990255, -0.005790006, 0.012705008, 0, 0.9099613, 0.41469324, -0.013962141, 0.41465282, -0.9098726, 2.8436847, 102.61114, -209.2338)
+light_color = Color(1, 0.9529412, 0.8980392, 1)
+light_volumetric_fog_energy = 16.0
+light_specular = 2.356
+shadow_enabled = true
+shadow_normal_bias = 0.1
+shadow_transmittance_bias = -9.1
+shadow_blur = 2.0
+directional_shadow_pancake_size = 0.0
+
+[node name="lvl1" parent="Map" unique_id=100770450 node_paths=PackedStringArray("catsFoundLabel") instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072779655, -0.046486378, -0.03614998)
+catsFoundLabel = NodePath("../../Hud/Control/catsfound")

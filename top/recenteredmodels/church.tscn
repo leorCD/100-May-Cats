@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c34tohcvrywse"]
+
+[ext_resource type="PackedScene" uid="uid://bxg16beh43ne3" path="res://top/models/Church.dae" id="1_avd3h"]
+[ext_resource type="Texture2D" uid="uid://d2piti822nl7d" path="res://top/textures/Houses Colorscheme 3.png" id="3_j0c1i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kyn3j"]
+albedo_texture = ExtResource("3_j0c1i")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vsf6k"]
+albedo_texture = ExtResource("3_j0c1i")
+
+[node name="Church" unique_id=1702393317 instance=ExtResource("1_avd3h")]
+
+[node name="Cube_211" parent="." index="0" unique_id=1804860624]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_kyn3j")
+surface_material_override/1 = SubResource("StandardMaterial3D_vsf6k")

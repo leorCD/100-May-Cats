@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://vc0ajxksxpqr"]
+
+[ext_resource type="PackedScene" uid="uid://dgjxk2a57uy3e" path="res://top/models/Foliage3.dae" id="1_sfhx7"]
+[ext_resource type="Texture2D" uid="uid://bxm1yeys8epo5" path="res://top/textures/FoliageColor3.png" id="2_d7s4c"]
+[ext_resource type="Texture2D" uid="uid://bpudqelotibv" path="res://top/textures/FoliageNormal3.png" id="3_mhhmo"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_leyau"]
+transparency = 1
+albedo_texture = ExtResource("2_d7s4c")
+normal_enabled = true
+normal_texture = ExtResource("3_mhhmo")
+uv1_world_triplanar = true
+
+[node name="Foliage3" unique_id=367697545 instance=ExtResource("1_sfhx7")]
+
+[node name="Cube_403" parent="." index="0" unique_id=1049531236]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+sorting_offset = 0.17
+surface_material_override/0 = SubResource("StandardMaterial3D_leyau")

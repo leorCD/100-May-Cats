@@ -1,0 +1,40 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="100 Cats"
+config/tags=PackedStringArray("3d", "c_sharp")
+run/main_scene="uid://bknkgxtix2yhx"
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
+config/icon="res://common/tx/icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://cb5gbwmy61bvs"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+
+[dotnet]
+
+project/assembly_name="100 Cats"
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
+anti_aliasing/quality/screen_space_aa=1

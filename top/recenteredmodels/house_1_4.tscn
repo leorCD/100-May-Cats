@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cmwtnenhu7y3y"]
+
+[ext_resource type="PackedScene" uid="uid://js7lcxoof0is" path="res://top/models/House-1-4.dae" id="1_xvnoy"]
+[ext_resource type="Texture2D" uid="uid://cjfwxgg100tyi" path="res://top/textures/Houses Colorscheme 2.png" id="2_2vjmc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ajina"]
+albedo_texture = ExtResource("2_2vjmc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wn2e8"]
+albedo_texture = ExtResource("2_2vjmc")
+
+[node name="House-1-4" unique_id=532095084 instance=ExtResource("1_xvnoy")]
+
+[node name="House-1-4" parent="." index="0" unique_id=1951468384]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="FrontExtension-1-4" parent="House-1-4" index="0" unique_id=2137128773]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")
+
+[node name="DoorExtension-1-4" parent="House-1-4" index="1" unique_id=108428790]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")
+
+[node name="RoofWindowBig-1-4" parent="House-1-4" index="2" unique_id=1440443709]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")
+
+[node name="Main-1-4" parent="House-1-4" index="3" unique_id=1256393195]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")
+
+[node name="RoofWindowFront-1-4" parent="House-1-4" index="4" unique_id=717364051]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")
+
+[node name="RoofWindowSide-1-4" parent="House-1-4" index="5" unique_id=641472934]
+surface_material_override/0 = SubResource("StandardMaterial3D_ajina")
+surface_material_override/1 = SubResource("StandardMaterial3D_wn2e8")

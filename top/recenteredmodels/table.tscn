@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b6pnclwsbiy63"]
+
+[ext_resource type="PackedScene" uid="uid://du08dymsn4vkf" path="res://top/models/Table.dae" id="1_mmhbe"]
+[ext_resource type="Texture2D" uid="uid://bcxb033ex4xti" path="res://top/textures/Houses Colorscheme.png" id="2_qjxgl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iscwu"]
+albedo_texture = ExtResource("2_qjxgl")
+
+[node name="Table" unique_id=1379278961 instance=ExtResource("1_mmhbe")]
+
+[node name="Cube_152" parent="." index="0" unique_id=1051853831]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+surface_material_override/0 = SubResource("StandardMaterial3D_iscwu")

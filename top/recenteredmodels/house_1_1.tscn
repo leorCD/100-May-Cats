@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://bsu8df4kqqexk"]
+
+[ext_resource type="PackedScene" uid="uid://bkuy8lttsgf4a" path="res://top/models/House-1-1.dae" id="1_6bgyv"]
+[ext_resource type="Texture2D" uid="uid://cjfwxgg100tyi" path="res://top/textures/Houses Colorscheme 2.png" id="2_fkubf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pwqmb"]
+albedo_texture = ExtResource("2_fkubf")
+
+[node name="House-1-1" unique_id=921949387 instance=ExtResource("1_6bgyv")]
+
+[node name="House-1-1" parent="." index="0" unique_id=1258176343]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 0, 0, 0)
+
+[node name="DoorExtension-1-1" parent="House-1-1" index="0" unique_id=223167007]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="RoofWindowsSides-1-1" parent="House-1-1" index="1" unique_id=1511220494]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="Balkony-1-1" parent="House-1-1" index="2" unique_id=1135427815]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="FrontExtension-1-1" parent="House-1-1" index="3" unique_id=1062524258]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="Main-1-1" parent="House-1-1" index="4" unique_id=1880203613]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="RoofWindowCentre-1-1" parent="House-1-1" index="5" unique_id=346454494]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="RoofWindowsMiddle-1-1" parent="House-1-1" index="6" unique_id=2018413612]
+material_override = SubResource("StandardMaterial3D_pwqmb")
+
+[node name="RoofWindowBig-1-1" parent="House-1-1" index="7" unique_id=2054365598]
+material_override = SubResource("StandardMaterial3D_pwqmb")

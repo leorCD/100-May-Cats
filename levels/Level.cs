@@ -1,0 +1,56 @@
+using Godot;
+using System;
+
+public partial class Level : Node3D
+{
+    [Export] public Label catsFoundLabel;
+    private int totalCats = 0;
+    private int foundCats = 0;
+    public override void _Ready()
+    {
+        // play music
+        AudioModule.Instance.SetVolume("Music", 0.1f);
+        AudioModule.Instance.PlayMusic("res://audio/music/lighthouse.mp3"); 
+
+        LoadCats();
+    }
+
+    private void LoadCats()
+    {
+        Node catsFolder = GetNode<Node>("cats");
+        foreach (Cat cat in catsFolder.GetChildren())
+        {
+            totalCats++;
+            cat.catFoundWithArgument += OnCatFound;
+        }
+
+        // GD.Print(totalCats + " total cats in this level");
+        UpdateCatLabel();
+    }
+    private void OnCatFound(Cat cat)
+    {
+        // GD.Print("found cat");
+        foundCats++;
+        UpdateCatLabel();
+
+        VanishCat(cat);
+    }
+
+    private void VanishCat(Cat cat)
+    {
+        Sprite3D catSprite = cat.GetNode<Sprite3D>("Sprite3D");
+
+        Tween disappearTween = CreateTween();
+        disappearTween.TweenProperty(catSprite, "modulate:a", 0.0, 0.75);
+
+        Tween upTween = CreateTween();
+        upTween.TweenProperty(catSprite, "position", catSprite.Position + new Vector3(0, 0.5f, 0), 1.0);
+
+        disappearTween.Finished += () => cat.QueueFree();
+    }
+
+    private void UpdateCatLabel()
+    {
+        catsFoundLabel.Text = foundCats.ToString();
+    }
+}
