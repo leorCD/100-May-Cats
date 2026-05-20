@@ -1,20 +1,14 @@
 using Godot;
 using System;
 
-public partial class OptionsButton : Button
+public partial class CloseButton : TextureButton
 {
     [Export] private PanelContainer settingsContainer;
-    private bool visible = false;
     private bool IsHovering;
     public override void _Ready()
     {        
         MouseEntered += onEnter;
         MouseExited += onExit;
-
-        if (settingsContainer != null)
-        {
-            settingsContainer.Position = new Vector2(settingsContainer.Position.X - settingsContainer.Size.X, settingsContainer.Position.Y);
-        }
     }
 
     public override void _Pressed()
@@ -24,7 +18,7 @@ public partial class OptionsButton : Button
         Tween moveRight = CreateTween();
         moveRight.SetEase(Tween.EaseType.Out);
         moveRight.SetTrans(Tween.TransitionType.Expo);
-        moveRight.TweenProperty(settingsContainer, "position:x", 0, 1f);
+        moveRight.TweenProperty(settingsContainer, "position:x", -settingsContainer.Size.X, 1f);
     }
 
 

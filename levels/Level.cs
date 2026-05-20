@@ -3,6 +3,9 @@ using System;
 
 public partial class Level : Node3D
 {
+    [Export] private GpuParticles2D confetti1;
+    [Export] private GpuParticles2D confetti2;
+
     [Export] public Label catsFoundLabel;
     private int totalCats = 0;
     private int foundCats = 0;
@@ -20,6 +23,8 @@ public partial class Level : Node3D
         Node catsFolder = GetNode<Node>("cats");
         foreach (Cat cat in catsFolder.GetChildren())
         {
+            if (cat.Visible == false) continue;
+
             totalCats++;
             cat.catFoundWithArgument += OnCatFound;
         }
@@ -34,6 +39,13 @@ public partial class Level : Node3D
         UpdateCatLabel();
 
         VanishCat(cat);
+
+        if (foundCats >= totalCats)
+        {
+            catsFoundLabel.LabelSettings.FontColor = new Color("ffffba");
+            confetti1.Emitting = true;
+            confetti2.Emitting = true;
+        }
     }
 
     private void VanishCat(Cat cat)

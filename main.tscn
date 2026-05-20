@@ -16,6 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://cm0kbo0aaeygj" path="res://levels/lvl1.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://mic67wy5m0bg" path="res://common/shdr/wavy2D.gdshader" id="4_kek77"]
 [ext_resource type="Script" uid="uid://f1k8ccbdif6r" path="res://scripts/UnderWater.cs" id="5_5vw27"]
+[ext_resource type="Texture2D" uid="uid://nh0utygqyf30" path="res://common/tx/x.png" id="5_074og"]
+[ext_resource type="Script" uid="uid://rwqfdmhltqpl" path="res://scripts/CloseButton.cs" id="6_cegan"]
+[ext_resource type="Texture2D" uid="uid://tr7w76mgmlem" path="res://common/tx/confetti.png" id="16_cegan"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
 
@@ -102,6 +105,64 @@ seamless = true
 shader = ExtResource("4_kek77")
 shader_parameter/noise = SubResource("NoiseTexture2D_efxa6")
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_82xsv"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_getpj"]
+offsets = PackedFloat32Array(0.21451104, 0.22397476, 0.5835962, 0.59305996)
+colors = PackedColorArray(0.41823772, 0.6019757, 1, 1, 0.91791296, 0.5044457, 0.43360603, 1, 0.91764706, 0.5058824, 0.43529412, 1, 0.7294118, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ryguw"]
+gradient = SubResource("Gradient_getpj")
+
+[sub_resource type="Curve" id="Curve_d13ii"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.19825074, 0.7528802), -1.78823, -1.78823, 0, 0, Vector2(1, 1), -2.2893584, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_1u8w0"]
+curve = SubResource("Curve_d13ii")
+
+[sub_resource type="Curve" id="Curve_0odxb"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.8017493, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.19124424), -14.01026, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_lswn8"]
+curve = SubResource("Curve_0odxb")
+
+[sub_resource type="Curve" id="Curve_a6jrf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7638484, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.67799544), -4.5663023, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_xuqvo"]
+curve = SubResource("Curve_a6jrf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qsp4k"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+initial_velocity_min = 185.25
+initial_velocity_max = 354.47998
+angular_velocity_min = -178.16002
+angular_velocity_max = 179.58998
+gravity = Vector3(0, 76.915, 0)
+damping_min = 27.386002
+damping_max = 46.405003
+damping_curve = SubResource("CurveTexture_1u8w0")
+scale_min = 0.25
+scale_max = 0.65
+scale_curve = SubResource("CurveTexture_xuqvo")
+color_initial_ramp = SubResource("GradientTexture1D_ryguw")
+hue_variation_min = -0.010000022
+hue_variation_max = 0.009999977
+hue_variation_curve = SubResource("CurveTexture_lswn8")
+anim_speed_min = 2.07
+anim_speed_max = 5.0
+anim_offset_max = 1.0
+
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h2yge"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 24.58
@@ -141,12 +202,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Settings" type="PanelContainer" parent="Hud/Control" unique_id=1100300759]
-visible = false
+z_index = 4
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.225
-anchor_right = 0.15234375
-anchor_bottom = 0.3986111
+anchor_top = 0.018208334
+anchor_right = 0.1549789
+anchor_bottom = 0.18483198
+offset_right = 1.5258789e-05
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
@@ -164,21 +226,25 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer" unique_id=763986941]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud/Control/Settings/MarginContainer" unique_id=2097024593]
+layout_mode = 2
+theme_override_constants/separation = 36
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer" unique_id=763986941]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="music" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/VBoxContainer" unique_id=1054262403]
+[node name="music" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1054262403]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/music" unique_id=1901014976]
+[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/music" unique_id=1901014976]
 layout_mode = 2
 mouse_filter = 1
 text = "Music"
 label_settings = SubResource("LabelSettings_82xsv")
 
-[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/music" unique_id=372694308]
+[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/music" unique_id=372694308]
 layout_mode = 2
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_getpj")
 max_value = 1.0
@@ -186,23 +252,32 @@ step = 0.01
 value = 0.4
 script = ExtResource("1_w48qg")
 
-[node name="sfx" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/VBoxContainer" unique_id=751275262]
+[node name="sfx" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer" unique_id=751275262]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/sfx" unique_id=1071353085]
+[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/sfx" unique_id=1071353085]
 layout_mode = 2
 mouse_filter = 1
 text = "Sound Effects"
 label_settings = SubResource("LabelSettings_82xsv")
 
-[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/VBoxContainer/sfx" unique_id=1722091874]
+[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/sfx" unique_id=1722091874]
 layout_mode = 2
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ryguw")
 max_value = 1.0
 step = 0.01
 value = 0.1
 script = ExtResource("2_vivmo")
+
+[node name="close" type="TextureButton" parent="Hud/Control/Settings/MarginContainer/HBoxContainer" unique_id=398768386 node_paths=PackedStringArray("settingsContainer")]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("5_074og")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("6_cegan")
+settingsContainer = NodePath("../../..")
 
 [node name="overlay" type="TextureRect" parent="Hud/Control" unique_id=1630741908]
 modulate = Color(18.892157, 18.892157, 18.892157, 1)
@@ -218,6 +293,7 @@ texture = ExtResource("1_dg77c")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="options" type="Button" parent="Hud/Control/overlay" unique_id=747272181 node_paths=PackedStringArray("settingsContainer")]
 layout_mode = 1
@@ -345,6 +421,29 @@ grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
 
+[node name="confetti" type="GPUParticles2D" parent="Hud/Control" unique_id=1442541766]
+material = SubResource("CanvasItemMaterial_82xsv")
+position = Vector2(6.0000153, 709)
+rotation = 0.38433495
+scale = Vector2(0.99999994, 0.99999994)
+emitting = false
+amount = 137
+texture = ExtResource("16_cegan")
+lifetime = 4.029999999999999
+explosiveness = 0.77
+process_material = SubResource("ParticleProcessMaterial_qsp4k")
+
+[node name="confetti2" type="GPUParticles2D" parent="Hud/Control" unique_id=173801316]
+material = SubResource("CanvasItemMaterial_82xsv")
+position = Vector2(1277.0001, 718)
+rotation = -0.27685514
+emitting = false
+amount = 137
+texture = ExtResource("16_cegan")
+lifetime = 4.029999999999999
+explosiveness = 0.77
+process_material = SubResource("ParticleProcessMaterial_qsp4k")
+
 [node name="CameraArm" type="SpringArm3D" parent="." unique_id=1022222344 node_paths=PackedStringArray("adornee")]
 collision_mask = 0
 spring_length = 5.175
@@ -376,6 +475,8 @@ shadow_transmittance_bias = -9.1
 shadow_blur = 2.0
 directional_shadow_pancake_size = 0.0
 
-[node name="lvl1" parent="Map" unique_id=100770450 node_paths=PackedStringArray("catsFoundLabel") instance=ExtResource("3_h2yge")]
+[node name="lvl1" parent="Map" unique_id=100770450 node_paths=PackedStringArray("confetti1", "confetti2", "catsFoundLabel") instance=ExtResource("3_h2yge")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.072779655, -0.046486378, -0.03614998)
+confetti1 = NodePath("../../Hud/Control/confetti")
+confetti2 = NodePath("../../Hud/Control/confetti2")
 catsFoundLabel = NodePath("../../Hud/Control/catsfound")
