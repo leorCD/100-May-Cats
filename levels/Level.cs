@@ -27,14 +27,23 @@ public partial class Level : Node3D
 
             totalCats++;
 
-            if (SaveManager.Instance.IsCollected(cat.Name))
+            if (SaveManager.Instance.IsCollected(cat.Name)) // if the cat is already collected according to the save file
             {
                 foundCats++; // count it without waiting for the signal
+
+                
             }
-            else
+            else // otherwise for cats that arent collected
             {
-                cat.catFoundWithArgument += OnCatFound; // only subscribe to uncollected cats
+                cat.catFoundWithArgument += OnCatFound; // subscribe to the signal so they are properly functional and removeable
             }
+        }
+        
+        if (foundCats >= totalCats)
+        {
+            catsFoundLabel.LabelSettings.FontColor = new Color("ffffba");
+            confetti1.Emitting = true;
+            confetti2.Emitting = true;
         }
 
         // GD.Print(totalCats + " total cats in this level");
