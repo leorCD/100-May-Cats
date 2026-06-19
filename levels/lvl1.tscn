@@ -1,12 +1,11 @@
 [gd_scene format=3 uid="uid://cm0kbo0aaeygj"]
 
 [ext_resource type="Script" uid="uid://coqu54bxi0ujt" path="res://levels/Level.cs" id="1_oulqg"]
-[ext_resource type="Script" uid="uid://buejojbawkc76" path="res://scripts/CloudGenerator.cs" id="2_lx5vm"]
 [ext_resource type="Material" uid="uid://kpy1fu5t23nm" path="res://common/tres/windMaterial.tres" id="2_qum6r"]
 [ext_resource type="PackedScene" uid="uid://lkadg2c5dkes" path="res://top/recenteredmodels/river_wall.tscn" id="2_t4dpt"]
 [ext_resource type="PackedScene" uid="uid://bv3or41ykfn2u" path="res://top/recenteredmodels/river_land.tscn" id="2_ujdnl"]
 [ext_resource type="PackedScene" uid="uid://cat1yn42y3o7x" path="res://top/recenteredmodels/river_wall_corner.tscn" id="3_bnw0w"]
-[ext_resource type="ArrayMesh" uid="uid://dwqw4xmj0fa8" path="res://common/blender objects/cloud.obj" id="3_nyy6x"]
+[ext_resource type="PackedScene" uid="uid://dd0gndxsgxf0b" path="res://levels/cloud_generator.tscn" id="3_qum6r"]
 [ext_resource type="PackedScene" uid="uid://bsu8df4kqqexk" path="res://top/recenteredmodels/house_1_1.tscn" id="3_u8pxf"]
 [ext_resource type="Shader" uid="uid://bpgx5j0uaw72n" path="res://common/shdr/water.gdshader" id="4_vmwvn"]
 [ext_resource type="PackedScene" uid="uid://c8hcmabd33vyb" path="res://top/recenteredmodels/river_wall_open.tscn" id="4_wny78"]
@@ -242,12 +241,8 @@ speed_scale = 2.02
 process_material = SubResource("ParticleProcessMaterial_uf5u5")
 draw_pass_1 = SubResource("BoxMesh_uf5u5")
 
-[node name="CloudGenerator" type="MultiMeshInstance3D" parent="effects" unique_id=1130365004]
+[node name="CloudGenerator" parent="effects" unique_id=411594866 instance=ExtResource("3_qum6r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.392359, 0)
-script = ExtResource("2_lx5vm")
-cloudMesh = ExtResource("3_nyy6x")
-cloudCount = 175
-cloudSpeed = -6.0
 
 [node name="Bird2" parent="effects" unique_id=608888905 instance=ExtResource("5_uf5u5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.2067413, 9.381488, -2.7140374)
@@ -378,7 +373,7 @@ transform = Transform3D(0.37737218, 0, -0.92606175, 0.42769375, 0.8869625, 0.174
 transform = Transform3D(0.22768813, 0, -0.97373414, 0, 1, 0, 0.97373414, 0, 0.22768813, -19.277954, 2.510627, 8.429027)
 
 [node name="cat3" parent="cats" unique_id=624609131 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7843868, 0, -0.620272, 0, 0.99999994, 0, 0.620272, 0, 0.7843868, -16.360445, 3.007263, 17.520594)
+transform = Transform3D(0.7843868, 0, -0.620272, 0, 0.99999994, 0, 0.620272, 0, 0.7843868, -16.360445, 2.8968189, 17.520594)
 weldTo = NodePath("../../top/map/Ship")
 
 [node name="cat4" parent="cats" unique_id=24872115 instance=ExtResource("36_gisse")]
@@ -411,10 +406,8 @@ transform = Transform3D(0.100161605, 0.57134247, -0.8145768, -0.06735598, 0.8207
 [node name="cat13" parent="cats" unique_id=529496328 instance=ExtResource("36_gisse")]
 transform = Transform3D(0.6999002, 0, 0.7142406, 0, 1, 0, -0.7142406, 0, 0.6999002, 16.557468, 1.5418603, 13.362938)
 
-[node name="cat14" parent="cats" unique_id=820390165 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7783637, 0, 0.6278136, 0, 1, 0, -0.6278136, 0, 0.7783637, 24.8952, 223.3292, 18.31152)
-weldTo = NodePath("../../top/map/Ship3")
-weldOffset = Vector3(0.305, 6.025, 0.07)
+[node name="cat14" parent="cats" unique_id=820390165 instance=ExtResource("36_gisse")]
+transform = Transform3D(0.52837116, -0.08340222, 0.84490705, 0.1559173, 0.98777014, 0, -0.8345739, 0.13173564, 0.5349131, 15.581249, 0.6843708, 9.618817)
 
 [node name="cat15" parent="cats" unique_id=1978197508 instance=ExtResource("36_gisse")]
 transform = Transform3D(0.26402456, 0, -0.964516, 0, 1, 0, 0.964516, 0, 0.26402456, 19.876654, 1.3252704, 7.1189575)
@@ -423,7 +416,7 @@ transform = Transform3D(0.26402456, 0, -0.964516, 0, 1, 0, 0.964516, 0, 0.264024
 transform = Transform3D(0.22755218, 0, -0.97376585, 0.44227734, 0.8909035, 0.10335254, 0.86753136, -0.45419264, 0.20272702, -21.535381, 2.6796174, 3.7644634)
 
 [node name="cat17" parent="cats" unique_id=1485298816 node_paths=PackedStringArray("weldTo") instance=ExtResource("36_gisse")]
-transform = Transform3D(0.7829774, 0, 0.62205017, 0, 1, 0, -0.62205017, 0, 0.7829774, 13.96019, 6.534087, 15.806531)
+transform = Transform3D(0.7829774, 0, 0.62205017, 0, 1, 0, -0.62205017, 0, 0.7829774, 13.96019, 6.3281784, 15.806531)
 weldTo = NodePath("../../top/map/Ship3")
 
 [node name="cat18" parent="cats" unique_id=440145238 instance=ExtResource("36_gisse")]
@@ -1355,21 +1348,21 @@ transform = Transform3D(-4.371139e-08, -0.12715116, -0.99188334, 0, 0.99188334, 
 transform = Transform3D(0.13895515, -0.120986074, -0.992989, 0.17036213, 1.4655846, -0.07281074, 1.614952, -0.1441953, 0.093120486, -8.917141, 2.4906423, 1.6039739)
 
 [node name="Ship" parent="top/map" unique_id=1883134415 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(0.27211115, 0.005919081, 0.98197716, 0.040286783, 1.003574, -0.020760048, -0.8634162, 0.048691943, 0.30850774, -10.461081, 0.37758645, 19.193228)
+transform = Transform3D(0.27211115, 0.005919081, 0.98197716, 0.040286783, 1.003574, -0.020760048, -0.8634162, 0.048691943, 0.30850774, -10.461081, 0.27124542, 19.193228)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425
 yOffset = 3.3
 
 [node name="Ship2" parent="top/map" unique_id=839549235 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(0.40163997, -0.027791442, -0.4910579, 0.028230824, 0.6342427, -0.012804782, 0.4910328, -0.013732376, 0.40239674, 20.951149, 0.38707674, 10.173331)
+transform = Transform3D(0.40163997, -0.027791442, -0.4910579, 0.028230824, 0.6342427, -0.012804782, 0.4910328, -0.013732376, 0.40239674, 20.951149, 0.6865152, 10.173331)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425
 yOffset = 3.3
 
 [node name="Ship3" parent="top/map" unique_id=1449083400 node_paths=PackedStringArray("Water") instance=ExtResource("21_px0hk")]
-transform = Transform3D(-0.8292716, -0.03470068, -0.016614635, -0.03691449, 0.7717157, -0.014791569, -0.019536652, 0.014782481, 0.7331892, 13.610189, 0.5273011, 15.721531)
+transform = Transform3D(-0.8292716, -0.03470068, -0.016614635, -0.03691449, 0.7717157, -0.014791569, -0.019536652, 0.014782481, 0.7331892, 13.610189, 0.32392427, 15.721531)
 Water = NodePath("../water")
 WindRippleDegScaler = 1.73
 VertexSpeedScaler = 2.425

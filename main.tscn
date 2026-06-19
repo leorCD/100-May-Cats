@@ -200,6 +200,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Settings" type="PanelContainer" parent="Hud/Control" unique_id=1100300759]
 z_index = 4
@@ -293,7 +294,6 @@ texture = ExtResource("1_dg77c")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
-metadata/_edit_lock_ = true
 
 [node name="options" type="Button" parent="Hud/Control/overlay" unique_id=747272181 node_paths=PackedStringArray("settingsContainer")]
 layout_mode = 1

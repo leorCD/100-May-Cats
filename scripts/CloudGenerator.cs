@@ -1,6 +1,7 @@
 using Godot;
 using System;
 
+[Tool]
 public partial class CloudGenerator : MultiMeshInstance3D
 {
     [Export] private Mesh cloudMesh;
@@ -19,7 +20,7 @@ public partial class CloudGenerator : MultiMeshInstance3D
             return;
         }
 
-        normalizedWind = normalizedWind = windDirection.Normalized();
+        normalizedWind = windDirection.Normalized();
         cloudPositions = new Vector3[cloudCount];
         cloudBasis = new Basis[cloudCount];
 
@@ -29,16 +30,15 @@ public partial class CloudGenerator : MultiMeshInstance3D
         mm.TransformFormat = MultiMesh.TransformFormatEnum.Transform3D;
         mm.InstanceCount = cloudCount;
 
+        // create and apply unshaded mesh
+        StandardMaterial3D mat = new StandardMaterial3D();
+        mat.Transparency = BaseMaterial3D.TransparencyEnum.Alpha;
+        mat.AlbedoColor = new Color(1, 1, 1, 0.7f);
+        cloudMesh.SurfaceSetMaterial(0, mat);
+
         // for each cloud
         for (int cloud = 0; cloud < cloudCount; cloud++)
         {
-            // create and apply unshaded mesh
-            StandardMaterial3D mat = new StandardMaterial3D();
-            mat.Transparency = BaseMaterial3D.TransparencyEnum.Alpha;
-            mat.AlbedoColor = new Color(1, 1, 1, 0.7f);
-            cloudMesh.SurfaceSetMaterial(0, mat);
-
-
             // create random cloud position
             float height = (float)GD.RandRange(yOffset.X, yOffset.Y);
             Vector3 position = new Vector3(
@@ -81,9 +81,17 @@ public partial class CloudGenerator : MultiMeshInstance3D
             // move cloud
             cloudPositions[cloud] += normalizedWind * cloudSpeed * (float)delta;
 
-            // teleport to the back of the bounds if it reaches one end
+            // X wrapping (both directions)
             if (cloudPositions[cloud].X > spawnRegion.X)
                 cloudPositions[cloud].X = -spawnRegion.X;
+            else if (cloudPositions[cloud].X < -spawnRegion.X)
+                cloudPositions[cloud].X = spawnRegion.X;
+
+            // Z wrapping (both directions)
+            if (cloudPositions[cloud].Z > spawnRegion.Y)
+                cloudPositions[cloud].Z = -spawnRegion.Y;
+            else if (cloudPositions[cloud].Z < -spawnRegion.Y)
+                cloudPositions[cloud].Z = spawnRegion.Y;
             
             Transform3D transform = new Transform3D(cloudBasis[cloud], cloudPositions[cloud]);
             Multimesh.SetInstanceTransform(cloud, transform);

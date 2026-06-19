@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dd0gndxsgxf0b"]
+
+[ext_resource type="Script" uid="uid://buejojbawkc76" path="res://scripts/CloudGenerator.cs" id="1_1v7b4"]
+[ext_resource type="ArrayMesh" uid="uid://dwqw4xmj0fa8" path="res://common/blender objects/cloud.obj" id="2_hqepi"]
+
+[node name="CloudGenerator" type="MultiMeshInstance3D" unique_id=411594866]
+script = ExtResource("1_1v7b4")
+cloudMesh = ExtResource("2_hqepi")
+cloudCount = 175
+cloudSpeed = -6.0

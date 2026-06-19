@@ -26,7 +26,15 @@ public partial class Level : Node3D
             if (cat.Visible == false) continue;
 
             totalCats++;
-            cat.catFoundWithArgument += OnCatFound;
+
+            if (SaveManager.Instance.IsCollected(cat.Name))
+            {
+                foundCats++; // count it without waiting for the signal
+            }
+            else
+            {
+                cat.catFoundWithArgument += OnCatFound; // only subscribe to uncollected cats
+            }
         }
 
         // GD.Print(totalCats + " total cats in this level");

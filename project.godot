@@ -20,10 +20,15 @@ config/icon="res://common/tx/icon.svg"
 
 buses/default_bus_layout="uid://cb5gbwmy61bvs"
 
+[autoload]
+
+SaveManager="*uid://4lyub5a8wucp"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/stretch/mode="canvas_items"
 
 [dotnet]
 

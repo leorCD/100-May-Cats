@@ -29,25 +29,32 @@ public partial class Cat : Node3D, IInteractable
 
     public override void _Ready()
     {
+        if (SaveManager.Instance.IsCollected(this.Name))
+        {
+            this.QueueFree();
+            return;
+        }
+
         spriteObj = GetNode<Sprite3D>("Sprite3D");
         spriteObj.Texture = catTextures.PickRandom();
-        
+        SetColor();
         if (weldTo != null){
             Vector3 weldObject = weldTo.GlobalPosition;
             relativeOffset = weldObject - GlobalPosition;
         }
-
-        SetColor();
     }
 
     public void Interact()
     {
+        SaveManager.Instance.CollectCat(this.Name);
         StaticBody3D collider = GetNode<StaticBody3D>("StaticBody3D");
         EmitSignal(SignalName.catFoundWithArgument, this);
         
         PlaySound();
         collider.QueueFree();
     }
+
+
 
     private Vector3 relativeOffset;
     public override void _Process(double delta)
@@ -57,8 +64,6 @@ public partial class Cat : Node3D, IInteractable
             GlobalPosition = weldTo.GlobalPosition - relativeOffset + weldOffset;
         }
     }
-
-
 
     private Color GetRandomColor()
     {
