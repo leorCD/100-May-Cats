@@ -1,8 +1,25 @@
 [gd_scene format=3 uid="uid://b2t74s6srm15e"]
 
 [ext_resource type="Script" uid="uid://ceb7bsvxwsg27" path="res://scripts/InteractionModule.cs" id="1_e6e23"]
+[ext_resource type="Shader" uid="uid://cwodl0o3f81uc" path="res://common/shdr/pixelation.gdshader" id="2_e3df7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e3df7"]
+shader = ExtResource("2_e3df7")
+shader_parameter/pixelSize = 2
 
 [node name="Camera3D" type="Camera3D" unique_id=1806749995]
 
 [node name="InteractionModule" type="Node3D" parent="." unique_id=729748149]
 script = ExtResource("1_e6e23")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1518374146]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=92844730]
+material = SubResource("ShaderMaterial_e3df7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true

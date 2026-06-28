@@ -17,8 +17,16 @@
 [ext_resource type="Shader" uid="uid://mic67wy5m0bg" path="res://common/shdr/wavy2D.gdshader" id="4_kek77"]
 [ext_resource type="Script" uid="uid://f1k8ccbdif6r" path="res://scripts/UnderWater.cs" id="5_5vw27"]
 [ext_resource type="Texture2D" uid="uid://nh0utygqyf30" path="res://common/tx/x.png" id="5_074og"]
-[ext_resource type="Script" uid="uid://rwqfdmhltqpl" path="res://scripts/CloseButton.cs" id="6_cegan"]
+[ext_resource type="Script" uid="uid://bvv2dttct3vfp" path="res://scripts/MainMenu.cs" id="6_1u8w0"]
+[ext_resource type="Texture2D" uid="uid://bid27wmgfacvq" path="res://common/tx/title.png" id="6_getpj"]
+[ext_resource type="Texture2D" uid="uid://br4awnkwvwli2" path="res://common/tx/play.png" id="7_ryguw"]
+[ext_resource type="Script" uid="uid://clrvx5ytkpphk" path="res://scripts/PlayButton.cs" id="8_d13ii"]
+[ext_resource type="Texture2D" uid="uid://dfrhnaq50ymt4" path="res://common/tx/exit.png" id="9_1u8w0"]
+[ext_resource type="Script" uid="uid://d2x7ioxg8wgd5" path="res://scripts/ExitButton.cs" id="10_ryguw"]
+[ext_resource type="Shader" uid="uid://dtiy3ubcabeqj" path="res://common/shdr/blur.gdshader" id="11_d13ii"]
 [ext_resource type="Texture2D" uid="uid://tr7w76mgmlem" path="res://common/tx/confetti.png" id="16_cegan"]
+[ext_resource type="Texture2D" uid="uid://nh8113xsjjru" path="res://common/tx/tutorial.png" id="22_a6jrf"]
+[ext_resource type="Script" uid="uid://dboiaw0ssvqcq" path="res://scripts/TutorialClose.cs" id="24_xuqvo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_074og"]
 
@@ -36,14 +44,10 @@ bg_color = Color(0.7411765, 0.827451, 1, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ryguw"]
 bg_color = Color(0.7411765, 0.827451, 1, 1)
 
-[sub_resource type="SystemFont" id="SystemFont_w48qg"]
-font_names = PackedStringArray("Julygo")
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vivmo"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2cqfq"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaehf"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1u8w0"]
+shader = ExtResource("11_d13ii")
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.122000005795
 
 [sub_resource type="SystemFont" id="SystemFont_h2yge"]
 font_names = PackedStringArray("Julygo")
@@ -66,7 +70,7 @@ outline_color = Color(0, 0, 0, 1)
 shader = ExtResource("1_1bvp3")
 shader_parameter/radius = 0.22
 shader_parameter/softness = 0.50000002375
-shader_parameter/intensity = 2.0
+shader_parameter/intensity = 0.0
 shader_parameter/contrast = 2.2
 shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
@@ -165,9 +169,11 @@ anim_offset_max = 1.0
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_h2yge"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 24.58
-dof_blur_far_transition = 52.45
-dof_blur_amount = 0.05
+dof_blur_far_distance = 55.48
+dof_blur_far_transition = -1.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 0.85
+dof_blur_near_transition = -1.0
 
 [node name="Main" type="Node3D" unique_id=195927381]
 
@@ -190,6 +196,7 @@ render_target_clear_mode = 2
 render_target_update_mode = 4
 
 [node name="Camera3D_Viewport" type="Camera3D" parent="SubViewportContainer/SubViewport" unique_id=47240543]
+transform = Transform3D(-0.8949344, 0.03267872, -0.44499946, 0, 0.9973145, 0.073238194, 0.44619775, 0.06554339, -0.89253104, 0, 0, 0)
 
 [node name="Hud" type="CanvasLayer" parent="." unique_id=1426856256]
 
@@ -200,52 +207,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Settings" type="PanelContainer" parent="Hud/Control" unique_id=1100300759]
+[node name="Menu" type="PanelContainer" parent="Hud/Control" unique_id=1100300759]
+visible = false
 z_index = 4
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.018208334
-anchor_right = 0.1549789
-anchor_bottom = 0.18483198
-offset_right = 1.5258789e-05
+anchor_top = 0.43611112
+anchor_right = 0.13671875
+anchor_bottom = 0.5638889
 grow_vertical = 2
-mouse_filter = 1
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxEmpty_074og")
+script = ExtResource("2_ycdy4")
 metadata/_edit_use_anchors_ = true
 
-[node name="TextureRect" type="TextureRect" parent="Hud/Control/Settings" unique_id=732449074]
+[node name="TextureRect" type="TextureRect" parent="Hud/Control/Menu" unique_id=732449074]
 layout_mode = 2
 texture = ExtResource("1_vivmo")
 expand_mode = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Hud/Control/Settings" unique_id=813746667]
+[node name="MarginContainer" type="MarginContainer" parent="Hud/Control/Menu" unique_id=813746667]
 layout_mode = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Hud/Control/Settings/MarginContainer" unique_id=2097024593]
-layout_mode = 2
-theme_override_constants/separation = 36
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer" unique_id=763986941]
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/Menu/MarginContainer" unique_id=763986941]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="music" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1054262403]
+[node name="music" type="VBoxContainer" parent="Hud/Control/Menu/MarginContainer/VBoxContainer" unique_id=1054262403]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/music" unique_id=1901014976]
+[node name="Label" type="Label" parent="Hud/Control/Menu/MarginContainer/VBoxContainer/music" unique_id=1901014976]
 layout_mode = 2
 mouse_filter = 1
 text = "Music"
 label_settings = SubResource("LabelSettings_82xsv")
 
-[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/music" unique_id=372694308]
+[node name="HSlider" type="HSlider" parent="Hud/Control/Menu/MarginContainer/VBoxContainer/music" unique_id=372694308]
 layout_mode = 2
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_getpj")
 max_value = 1.0
@@ -253,17 +258,17 @@ step = 0.01
 value = 0.4
 script = ExtResource("1_w48qg")
 
-[node name="sfx" type="VBoxContainer" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer" unique_id=751275262]
+[node name="sfx" type="VBoxContainer" parent="Hud/Control/Menu/MarginContainer/VBoxContainer" unique_id=751275262]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="Label" type="Label" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/sfx" unique_id=1071353085]
+[node name="Label" type="Label" parent="Hud/Control/Menu/MarginContainer/VBoxContainer/sfx" unique_id=1071353085]
 layout_mode = 2
 mouse_filter = 1
 text = "Sound Effects"
 label_settings = SubResource("LabelSettings_82xsv")
 
-[node name="HSlider" type="HSlider" parent="Hud/Control/Settings/MarginContainer/HBoxContainer/VBoxContainer/sfx" unique_id=1722091874]
+[node name="HSlider" type="HSlider" parent="Hud/Control/Menu/MarginContainer/VBoxContainer/sfx" unique_id=1722091874]
 layout_mode = 2
 theme_override_styles/grabber_area = SubResource("StyleBoxFlat_ryguw")
 max_value = 1.0
@@ -271,17 +276,72 @@ step = 0.01
 value = 0.1
 script = ExtResource("2_vivmo")
 
-[node name="close" type="TextureButton" parent="Hud/Control/Settings/MarginContainer/HBoxContainer" unique_id=398768386 node_paths=PackedStringArray("settingsContainer")]
+[node name="MainMenu" type="Control" parent="Hud/Control" unique_id=180559917]
+visible = false
+z_index = 4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("6_1u8w0")
+metadata/_edit_use_anchors_ = true
+
+[node name="blur" type="ColorRect" parent="Hud/Control/MainMenu" unique_id=2040653978]
+material = SubResource("ShaderMaterial_1u8w0")
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="title" type="TextureRect" parent="Hud/Control/MainMenu" unique_id=93683411]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("6_getpj")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/Control/MainMenu" unique_id=1777834975]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40625
+anchor_top = 0.5552083
+anchor_right = 0.59375
+anchor_bottom = 0.93645835
+offset_left = -40.0
+offset_top = -45.75
+offset_right = 40.0
+offset_bottom = 45.75
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="play" type="TextureButton" parent="Hud/Control/MainMenu/VBoxContainer" unique_id=1507913011 node_paths=PackedStringArray("title", "exit", "blur", "tutorialPage", "cameraArm", "control1", "control2", "control3", "vignette")]
 layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("5_074og")
-ignore_texture_size = true
-stretch_mode = 4
-script = ExtResource("6_cegan")
-settingsContainer = NodePath("../../..")
+texture_normal = ExtResource("7_ryguw")
+script = ExtResource("8_d13ii")
+title = NodePath("../../title")
+exit = NodePath("../exit")
+blur = NodePath("../../blur")
+tutorialPage = NodePath("../../../tutorial")
+cameraArm = NodePath("../../../../../CameraArm")
+control1 = NodePath("../../../catsfound")
+control2 = NodePath("../../../overlay")
+control3 = NodePath("../../../caticon")
+vignette = NodePath("../../../Vignette")
+
+[node name="exit" type="TextureButton" parent="Hud/Control/MainMenu/VBoxContainer" unique_id=1715394213]
+layout_mode = 2
+texture_normal = ExtResource("9_1u8w0")
+script = ExtResource("10_ryguw")
 
 [node name="overlay" type="TextureRect" parent="Hud/Control" unique_id=1630741908]
-modulate = Color(18.892157, 18.892157, 18.892157, 1)
+modulate = Color(18.892157, 18.892157, 18.892157, 0)
 z_index = 1
 layout_mode = 1
 anchors_preset = 15
@@ -294,34 +354,10 @@ texture = ExtResource("1_dg77c")
 expand_mode = 1
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
-
-[node name="options" type="Button" parent="Hud/Control/overlay" unique_id=747272181 node_paths=PackedStringArray("settingsContainer")]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.024223235
-anchor_top = 0.114277765
-anchor_right = 0.12168751
-anchor_bottom = 0.11833333
-offset_left = -13.005741
-offset_top = -19.279999
-offset_right = 5.23999
-offset_bottom = 12.799995
-rotation = -0.41015238
-pivot_offset_ratio = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 4
-theme_override_fonts/font = SubResource("SystemFont_w48qg")
-theme_override_font_sizes/font_size = 34
-theme_override_styles/normal = SubResource("StyleBoxEmpty_vivmo")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_2cqfq")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_yaehf")
-text = "options"
-script = ExtResource("2_ycdy4")
-settingsContainer = NodePath("../../Settings")
-metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="caticon" type="TextureRect" parent="Hud/Control" unique_id=1907567906]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.440625
@@ -338,6 +374,7 @@ flip_h = true
 metadata/_edit_use_anchors_ = true
 
 [node name="catsfound" type="Label" parent="Hud/Control" unique_id=141624822]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.4953125
@@ -444,12 +481,45 @@ lifetime = 4.029999999999999
 explosiveness = 0.77
 process_material = SubResource("ParticleProcessMaterial_qsp4k")
 
+[node name="tutorial" type="Control" parent="Hud/Control" unique_id=176089722]
+visible = false
+layout_mode = 1
+anchor_top = -1.0013889
+anchor_right = 1.0
+anchor_bottom = -0.0013888889
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Hud/Control/tutorial" unique_id=1518380823]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("22_a6jrf")
+
+[node name="TextureButton" type="TextureButton" parent="Hud/Control/tutorial" unique_id=265458770]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.7765625
+anchor_top = 0.12083333
+anchor_right = 0.81171876
+anchor_bottom = 0.18333334
+texture_normal = ExtResource("5_074og")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("24_xuqvo")
+metadata/_edit_use_anchors_ = true
+
 [node name="CameraArm" type="SpringArm3D" parent="." unique_id=1022222344 node_paths=PackedStringArray("adornee")]
+transform = Transform3D(-0.8949344, 0.032678716, -0.44499946, 0, 0.99731445, 0.073238194, 0.44619775, 0.06554338, -0.89253104, 0, 0, 0)
 collision_mask = 0
 spring_length = 5.175
 script = ExtResource("1_0xm2m")
 adornee = NodePath("../Map/lvl1")
-mouse_sensitivity = 0.1
+mouse_sensitivity = 0.05
 yOffset = 2.4
 minDistance = 1.0
 maxDistance = 30.0

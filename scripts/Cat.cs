@@ -1,13 +1,9 @@
 using Godot;
 using System;
 
-[Tool]
 public partial class Cat : Node3D, IInteractable
 {
     [Signal] public delegate void catFoundWithArgumentEventHandler(Cat cat);
-
-    [Export] public Node3D weldTo;
-    [Export] private Vector3 weldOffset;
 
     [Export] private Godot.Collections.Array<Texture2D> catTextures;
     private Sprite3D spriteObj;
@@ -38,10 +34,6 @@ public partial class Cat : Node3D, IInteractable
         spriteObj = GetNode<Sprite3D>("Sprite3D");
         spriteObj.Texture = catTextures.PickRandom();
         SetColor();
-        if (weldTo != null){
-            Vector3 weldObject = weldTo.GlobalPosition;
-            relativeOffset = weldObject - GlobalPosition;
-        }
     }
 
     public void Interact()
@@ -56,14 +48,6 @@ public partial class Cat : Node3D, IInteractable
 
 
 
-    private Vector3 relativeOffset;
-    public override void _Process(double delta)
-    {
-        if (weldTo != null)
-        {
-            GlobalPosition = weldTo.GlobalPosition - relativeOffset + weldOffset;
-        }
-    }
 
     private Color GetRandomColor()
     {
@@ -90,7 +74,8 @@ public partial class Cat : Node3D, IInteractable
     }
     private void SetColor()
     {
-        var mat = (ShaderMaterial)spriteObj.MaterialOverride;
+        var mat = (ShaderMaterial)spriteObj.MaterialOverride.Duplicate();
+        spriteObj.MaterialOverride = mat;
         mat.SetShaderParameter("texture_albedo", spriteObj.Texture);
         mat.SetShaderParameter("replace_color", GetRandomColor());
     }

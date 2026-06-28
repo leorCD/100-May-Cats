@@ -2,25 +2,29 @@
 
 [ext_resource type="Script" uid="uid://bltixjwcxrwkj" path="res://scripts/Cat.cs" id="1_7njl1"]
 [ext_resource type="Texture2D" uid="uid://c54trcjt2fd5p" path="res://cats/cat1.png" id="2_h60xr"]
-[ext_resource type="Texture2D" uid="uid://c28wgo4k80a67" path="res://cats/cat2.png" id="3_g2qh1"]
-[ext_resource type="Texture2D" uid="uid://dony7xtgs1p5n" path="res://cats/cat3.png" id="4_18eoc"]
-[ext_resource type="Texture2D" uid="uid://rj8yr83x2gx3" path="res://cats/cat4.png" id="5_y4qdp"]
-[ext_resource type="Texture2D" uid="uid://bmq3l6n7gahky" path="res://cats/cat5.png" id="6_yfa5y"]
-[ext_resource type="Texture2D" uid="uid://bng7tcoojymvi" path="res://cats/cat6.png" id="7_78md0"]
-[ext_resource type="Texture2D" uid="uid://654cnalhb3ko" path="res://cats/cat7.png" id="8_s8uqk"]
-[ext_resource type="Texture2D" uid="uid://bpylt233nmrh2" path="res://cats/cat8.png" id="9_w1kca"]
-[ext_resource type="Texture2D" uid="uid://bpkrvt1fdyelf" path="res://cats/cat9.png" id="10_3yovj"]
-[ext_resource type="Texture2D" uid="uid://bfx3lt24hrk83" path="res://cats/cat10.png" id="11_hgb4g"]
+[ext_resource type="Texture2D" uid="uid://c28wgo4k80a67" path="res://cats/cat2.png" id="3_3yovj"]
+[ext_resource type="Texture2D" uid="uid://dony7xtgs1p5n" path="res://cats/cat3.png" id="4_hgb4g"]
+[ext_resource type="Texture2D" uid="uid://rj8yr83x2gx3" path="res://cats/cat4.png" id="5_04a6o"]
+[ext_resource type="Texture2D" uid="uid://bmq3l6n7gahky" path="res://cats/cat5.png" id="6_mcr4x"]
+[ext_resource type="Texture2D" uid="uid://bng7tcoojymvi" path="res://cats/cat6.png" id="7_ibbaj"]
+[ext_resource type="Texture2D" uid="uid://654cnalhb3ko" path="res://cats/cat7.png" id="8_tmhmv"]
+[ext_resource type="Texture2D" uid="uid://bpylt233nmrh2" path="res://cats/cat8.png" id="9_b5yi4"]
+[ext_resource type="Texture2D" uid="uid://bpkrvt1fdyelf" path="res://cats/cat9.png" id="10_wr404"]
+[ext_resource type="Texture2D" uid="uid://bfx3lt24hrk83" path="res://cats/cat10.png" id="11_84wyv"]
 [ext_resource type="Texture2D" uid="uid://dhceksx5fv0d6" path="res://common/tx/icon.svg" id="12_04a6o"]
-[ext_resource type="AudioStream" uid="uid://cjig73go0dln4" path="res://audio/sfx/gary_meow.mp3" id="13_18eoc"]
-[ext_resource type="AudioStream" uid="uid://qm8ey6r1feww" path="res://audio/sfx/meow-1.mp3" id="14_y4qdp"]
-[ext_resource type="AudioStream" uid="uid://dqc3sj1511t3t" path="res://audio/sfx/the-end-meow-by-nekocat-just-3-second-1.mp3" id="15_yfa5y"]
-[ext_resource type="AudioStream" uid="uid://bhcsefmjibo0u" path="res://audio/sfx/comedy_pop_finger_in_mouth_001.mp3" id="16_y4qdp"]
+[ext_resource type="Texture2D" uid="uid://c22umlcniw66y" path="res://cats/cat11.png" id="12_6etds"]
+[ext_resource type="Texture2D" uid="uid://5wwguxrmnow1" path="res://cats/cat12.png" id="13_iw7i5"]
+[ext_resource type="Texture2D" uid="uid://b8hovwxcqgq0a" path="res://cats/cat13.png" id="14_d2nqi"]
+[ext_resource type="Texture2D" uid="uid://cpu3ry2jgps04" path="res://cats/cat14.png" id="15_q5k3k"]
 [ext_resource type="Shader" uid="uid://dfcex7765cktm" path="res://cats/color_replace.gdshader" id="16_yfa5y"]
+[ext_resource type="AudioStream" uid="uid://cjig73go0dln4" path="res://audio/sfx/meow/gary_meow.mp3" id="17_xciq3"]
+[ext_resource type="AudioStream" uid="uid://qm8ey6r1feww" path="res://audio/sfx/meow/meow-1.mp3" id="18_4jxcc"]
+[ext_resource type="AudioStream" uid="uid://dqc3sj1511t3t" path="res://audio/sfx/meow/the-end-meow-by-nekocat-just-3-second-1.mp3" id="19_4tpvr"]
+[ext_resource type="AudioStream" uid="uid://bhcsefmjibo0u" path="res://audio/sfx/pop/comedy_pop_finger_in_mouth_001.mp3" id="20_uqqqn"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y4qdp"]
 resource_local_to_scene = true
-render_priority = 0
+render_priority = -2
 shader = ExtResource("16_yfa5y")
 shader_parameter/target_color = Color(1, 0, 0, 1)
 shader_parameter/replace_color = Color(0.56078434, 0.5411765, 0.5294118, 1)
@@ -32,10 +36,10 @@ size = Vector3(0.2927246, 0.30444336, 0.026367188)
 
 [node name="cat" type="Node3D" unique_id=2096618828]
 script = ExtResource("1_7njl1")
-catTextures = [ExtResource("2_h60xr"), ExtResource("3_g2qh1"), ExtResource("4_18eoc"), ExtResource("5_y4qdp"), ExtResource("6_yfa5y"), ExtResource("7_78md0"), ExtResource("8_s8uqk"), ExtResource("9_w1kca"), ExtResource("10_3yovj"), ExtResource("11_hgb4g")]
+catTextures = Array[Texture2D]([ExtResource("2_h60xr"), ExtResource("3_3yovj"), ExtResource("4_hgb4g"), ExtResource("5_04a6o"), ExtResource("6_mcr4x"), ExtResource("7_ibbaj"), ExtResource("8_tmhmv"), ExtResource("9_b5yi4"), ExtResource("10_wr404"), ExtResource("11_84wyv"), ExtResource("12_6etds"), ExtResource("13_iw7i5"), ExtResource("14_d2nqi"), ExtResource("15_q5k3k")])
 texture = ExtResource("12_04a6o")
-meowSfxs = Array[AudioStreamMP3]([ExtResource("13_18eoc"), ExtResource("14_y4qdp"), ExtResource("15_yfa5y")])
-popSfxs = Array[AudioStreamMP3]([ExtResource("16_y4qdp")])
+meowSfxs = Array[AudioStreamMP3]([ExtResource("17_xciq3"), ExtResource("18_4jxcc"), ExtResource("19_4tpvr")])
+popSfxs = Array[AudioStreamMP3]([ExtResource("20_uqqqn")])
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=218094813]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)

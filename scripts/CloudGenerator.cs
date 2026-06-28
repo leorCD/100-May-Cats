@@ -1,7 +1,6 @@
 using Godot;
 using System;
 
-[Tool]
 public partial class CloudGenerator : MultiMeshInstance3D
 {
     [Export] private Mesh cloudMesh;

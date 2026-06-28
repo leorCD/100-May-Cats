@@ -1,46 +1,28 @@
+
 using Godot;
 using System;
 
-public partial class OptionsButton : Button
+public partial class OptionsButton : PanelContainer
 {
-    [Export] private PanelContainer settingsContainer;
-    private bool visible = false;
+    private bool isPanelVisible  = false;
     private bool IsHovering;
     public override void _Ready()
-    {        
-        MouseEntered += onEnter;
-        MouseExited += onExit;
+    {       
+        this.Visible = true;
+        this.Position = new Vector2(this.Position.X - this.Size.X, this.Position.Y);
+    }
 
-        if (settingsContainer != null)
+    public override void _UnhandledInput(InputEvent @event)
+    {
+        if (@event.IsActionPressed("escape"))
         {
-            settingsContainer.Position = new Vector2(settingsContainer.Position.X - settingsContainer.Size.X, settingsContainer.Position.Y);
+            isPanelVisible = !isPanelVisible;
+            float targetX = isPanelVisible ? 0 : -this.Size.X;
+
+            Tween move = CreateTween();
+            move.SetEase(Tween.EaseType.Out);
+            move.SetTrans(Tween.TransitionType.Expo);
+            move.TweenProperty(this, "position:x", targetX, 1f);
         }
-    }
-
-    public override void _Pressed()
-    {
-        if (settingsContainer == null) return;
-
-        Tween moveRight = CreateTween();
-        moveRight.SetEase(Tween.EaseType.Out);
-        moveRight.SetTrans(Tween.TransitionType.Expo);
-        moveRight.TweenProperty(settingsContainer, "position:x", 0, 1f);
-    }
-
-
-    private void onEnter()
-    {
-        startTween(new Vector2(0.8f, 0.8f));
-    }
-    private void onExit()
-    {
-        startTween(Vector2.One);
-    }
-    private void startTween(Vector2 scale)
-    {
-        Tween growTween = CreateTween();
-        // growTween.SetEase(Tween.EaseType.Out);
-        growTween.SetTrans(Tween.TransitionType.Expo);
-        growTween.TweenProperty(this, "scale", scale, 0.15f);
     }
 }

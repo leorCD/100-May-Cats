@@ -10,11 +10,12 @@ config_version=5
 
 [application]
 
-config/name="100 Cats"
+config/name="100 Cats in May"
 config/tags=PackedStringArray("3d", "c_sharp")
 run/main_scene="uid://bknkgxtix2yhx"
 config/features=PackedStringArray("4.6", "C#", "Forward Plus")
-config/icon="res://common/tx/icon.svg"
+config/icon="uid://irciax7jinsb"
+config/windows_native_icon="res://logo1.ico"
 
 [audio]
 
@@ -37,6 +38,14 @@ project/assembly_name="100 Cats"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
+[input]
+
+escape={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [physics]
 
